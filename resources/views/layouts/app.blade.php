@@ -1,5 +1,40 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<style>
+    html,
+    body {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    .carousel-container {
+        scroll-behavior: smooth;
+        /* Smooth scroll */
+        white-space: nowrap;
+        /* Force single-line items */
+    }
+
+    .carousel-item {
+        flex: 0 0 auto;
+        /* Prevent flex-shrink */
+    }
+
+    @media (max-width: 1024px) {
+        .carousel-container {
+            display: flex;
+            /* Enable horizontal scroll on mobile */
+            gap: 16px;
+            /* Space between items */
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .carousel-container {
+            display: grid;
+            /* Switch to grid for desktop */
+        }
+    }
+</style>
 
 <head>
     <meta charset="utf-8">

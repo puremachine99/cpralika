@@ -26,11 +26,11 @@
             </button>
         </div>
 
-        <!-- Products Cards -->
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <!-- Products Carousel -->
+        <div class="carousel-container flex lg:grid lg:grid-cols-5 gap-6 overflow-x-auto lg:overflow-hidden">
             @for ($i = 1; $i <= 5; $i++)
                 <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+                    class="carousel-item bg-white shadow-md rounded-lg overflow-hidden flex-shrink-0 w-60 lg:w-auto transition-transform transform hover:scale-105">
                     <!-- Image -->
                     <div class="h-40 bg-gray-200">
                         <img src="https://via.placeholder.com/150x100" alt="Product {{ $i }}" class="w-full h-full object-cover">
@@ -46,3 +46,4 @@
         </div>
     </div>
 </section>
+
