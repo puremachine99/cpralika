@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 
+
     // News Management
     Route::get('admin/news', [NewsController::class, 'list'])->name('admin.news.list');
     Route::resource('admin/news', NewsController::class)->except(['index', 'show']);
@@ -45,7 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/categories/products', ProductCategoryController::class)->names('categories.products');
 
     // Products Management
-    Route::get('admin/products', [ProductController::class, 'list'])->name('admin.products.list');
+    Route::get('admin/products/list', [ProductController::class, 'list'])->name('admin.products.list');
     Route::resource('admin/products', ProductController::class)->except(['index', 'show']);
 
     // Media Library

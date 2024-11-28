@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
+use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Untuk visitor (halaman utama)
     public function index()
     {
         $categories = ProductCategory::with('children')->whereNull('parent_id')->get();
@@ -26,55 +25,84 @@ class ProductController extends Controller
     }
 
 
-    public function list() // admin
+    // Untuk admin (list semua data produk)
+    public function list()
     {
-        return view('admin.products.list');
+        $categories = ProductCategory::with('children')->get();
+        $products = Product::with('category')->paginate(10);
+
+        return view('admin.products.list', compact('categories', 'products'));
     }
-    /**
-     * Show the form for creating a new resource.
-     */
+
+    // Tambahan metode lainnya (create, store, edit, update, destroy)
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'category_id' => 'required|exists:product_categories,id',
+            'description' => 'nullable|string',
+            'main_image' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'gallery_images.*' => 'image|mimes:jpeg,png,jpg,gif',
+        ]);
+
+        // Upload Main Image
+        $mainImagePath = $request->file('main_image')->store('products/main_images', 'public');
+
+        // Upload Gallery Images
+        $galleryImagePaths = [];
+        if ($request->has('gallery_images')) {
+            foreach ($request->file('gallery_images') as $galleryImage) {
+                $galleryImagePaths[] = $galleryImage->store('products/gallery_images', 'public');
+            }
+        }
+
+        // Create Product
+        $product = Product::create([
+            'name' => $validated['name'],
+            'category_id' => $validated['category_id'],
+            'description' => $validated['description'],
+            'main_image' => $mainImagePath,
+            'gallery_images' => $galleryImagePaths,
+        ]);
+
+        // Add Specifications
+        if ($request->has('specifications')) {
+            foreach ($request->input('specifications') as $spec) {
+                $product->specifications()->create($spec);
+            }
+        }
+
+        return redirect()->route('admin.products.list')->with('success', 'Product created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+    public function edit(Product $product)
     {
-        //
+        return view('admin.products.edit', compact('product'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        $product->update($request->all());
+
+        return redirect()->route('admin.products.list')->with('success', 'Product updated successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(Product $product)
     {
-        //
-    }
+        $product->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('admin.products.list')->with('success', 'Product deleted successfully.');
     }
 }

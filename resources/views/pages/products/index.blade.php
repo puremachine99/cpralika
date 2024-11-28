@@ -3,10 +3,13 @@
 
     <div class="bg-gray-100 py-12">
         <div class="container mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mt-5">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <!-- Sidebar Kategori -->
                 @include('pages.products.partials.sidebar-category')
                 @include('pages.products.partials.grid-products')
+
             </div>
+
         </div>
         <div class="mt-8 flex justify-center">
             <ul class="flex space-x-2">

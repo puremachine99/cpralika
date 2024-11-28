@@ -1,5 +1,5 @@
 <div x-data="{ open: true }"
-    class="bg-zinc-700 h-screen w-64 fixed top-0 left-0 flex flex-col shadow-lg text-white transition-all duration-300"
+    class="bg-ralika-blue h-screen w-64 fixed top-0 left-0 flex flex-col shadow-lg text-white transition-all duration-300"
     :class="{ 'w-64': open, 'w-20': !open }">
 
     <!-- Toggle Button -->
@@ -7,7 +7,7 @@
     <!-- Logo -->
     <div class="p-4 flex items-center justify-end">
         <x-logo-ralika-putih class="h-6 w-auto mx-auto lg:mx-0 text-white mb-8 mt-4" />
-        <button @click="open = !open" class="p-4 text-center bg-transparent hover:bg-blue-800">
+        <button @click="open = !open" class="p-4 text-center bg-transparent hover:bg-white text-ralika-blue">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path :class="{ 'hidden': open, 'block': !open }" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -20,7 +20,7 @@
     <nav class="mt-4 flex-grow">
         <!-- Dashboard -->
         <a href="{{ route('admin.dashboard') }}"
-            class="flex items-center gap-2 py-2 px-4 hover:bg-blue-600 rounded-md group {{ request()->routeIs('admin.dashboard') ? 'bg-blue-800' : '' }}"
+            class="flex items-center gap-2 py-2 px-4 hover:bg-blue-600 rounded-md group {{ request()->routeIs('admin.dashboard') ? 'bg-white text-ralika-blue' : '' }}"
             :class="{ 'justify-center': !open }" title="Dashboard">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
                 stroke-width="1.5" stroke="currentColor">
@@ -54,7 +54,7 @@
             <div x-show="open" class="ml-6 space-y-1">
              
                 <a href="{{ route('admin.news.list') }}"
-                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('admin.news.list') ? 'bg-blue-800' : '' }}">
+                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('admin.news.list') ? 'bg-white text-ralika-blue' : '' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -63,7 +63,7 @@
                     Daftar News
                 </a>
                 <a href="{{ route('categories.news.index') }}"
-                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('categories.news.index') ? 'bg-blue-800' : '' }}">
+                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('categories.news.index') ? 'bg-white text-ralika-blue' : '' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -73,7 +73,7 @@
                     Kategori News
                 </a>
                 <a href="{{ route('tags.news.index') }}"
-                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('tags.news.index') ? 'bg-blue-800' : '' }}">
+                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('tags.news.index') ? 'bg-white text-ralika-blue' : '' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -106,7 +106,7 @@
             <div x-show="open" class="ml-6 space-y-1">
            
                 <a href="{{ route('admin.products.list') }}"
-                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('admin.products.list') ? 'bg-blue-800' : '' }}">
+                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('admin.products.list') ? 'bg-white text-ralika-blue' : '' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -114,7 +114,7 @@
                     </svg>Daftar Produk
                 </a>
                 <a href="{{ route('categories.products.index') }}"
-                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('categories.products.index') ? 'bg-blue-800' : '' }}">
+                    class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('categories.products.index') ? 'bg-white text-ralika-blue' : '' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -126,7 +126,7 @@
 
         <!-- Media Library -->
         <a href="{{ route('media.index') }}"
-            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('media.index') ? 'bg-blue-800' : '' }}">
+            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('media.index') ? 'bg-white text-ralika-blue' : '' }}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -140,7 +140,7 @@
 
         <!-- Laporan -->
         <a href="{{ route('reports.articles') }}"
-            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('reports.articles') ? 'bg-blue-800' : '' }}">
+            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('reports.articles') ? 'bg-white text-ralika-blue' : '' }}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -150,7 +150,7 @@
             Laporan Artikel
         </a>
         <a href="{{ route('reports.products') }}"
-            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('reports.products') ? 'bg-blue-800' : '' }}">
+            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('reports.products') ? 'bg-white text-ralika-blue' : '' }}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
@@ -160,7 +160,7 @@
             Laporan Produk
         </a>
         <a href="{{ route('visitor-messages.index') }}"
-            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('visitor-messages.index') ? 'bg-blue-800' : '' }}">
+            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('visitor-messages.index') ? 'bg-white text-ralika-blue' : '' }}">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -172,7 +172,7 @@
 
         <!-- Pengaturan Website -->
         <a href="{{ route('settings.index') }}"
-            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('settings.index') ? 'bg-blue-800' : '' }}">
+            class="flex items-center gap-2 rounded-md py-2 px-4 hover:bg-blue-600 {{ request()->routeIs('settings.index') ? 'bg-white text-ralika-blue' : '' }}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round"
