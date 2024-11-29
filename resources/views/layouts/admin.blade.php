@@ -5,6 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Favicon Links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('icons/site.webmanifest') }}">
+    <link rel="shortcut icon" href="{{ asset('icons/favicon.ico') }}">
 
     <title>{{ config('app.name', 'Admin Panel') }}</title>
 
@@ -33,7 +39,7 @@
             </nav>
         </aside>
 
-        
+
         <!-- Main Content -->
         <div class="flex-1 flex flex-col">
             <!-- Navbar -->
@@ -49,7 +55,7 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="text-red-500 hover:text-red-700">
-                            Logout 
+                            Logout
                         </button>
                     </form>
                 </div>
