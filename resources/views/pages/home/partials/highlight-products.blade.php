@@ -12,7 +12,8 @@
 
         <!-- Filter Tabs -->
         <div class="flex justify-center space-x-4 mb-8">
-            <button class="px-4 py-2 text-sm font-medium text-ralika-blue border-b-2 border-ralika-blue focus:outline-none">
+            <button
+                class="px-4 py-2 text-sm font-medium text-ralika-blue border-b-2 border-ralika-blue focus:outline-none">
                 VEHICLE
             </button>
             <button class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-ralika-blue focus:outline-none">
@@ -33,7 +34,8 @@
                     class="carousel-item bg-white shadow-md rounded-lg overflow-hidden flex-shrink-0 w-60 lg:w-auto transition-transform transform hover:scale-105">
                     <!-- Image -->
                     <div class="h-40 bg-gray-200">
-                        <img src="https://via.placeholder.com/150x100" alt="Product {{ $i }}" class="w-full h-full object-cover">
+                        <img src="https://via.placeholder.com/150x100" alt="Product {{ $i }}"
+                            class="w-full h-full object-cover">
                     </div>
                     <!-- Content -->
                     <div class="p-4">
@@ -45,5 +47,24 @@
             @endfor
         </div>
     </div>
-</section>
+    <section class="relative bg-white py-12">
+        <!-- Tombol Show All Products -->
+        <div class="flex px-36">
+            <button
+                class="w-full px-12 py-3 bg-blue-900 text-white text-sm font-semibold rounded-full outline-2 shadow-xl hover:bg-blue-700 transition">
+                SHOW ALL PRODUCTS
+            </button>
+        </div>
 
+        <!-- Link Download Brochure -->
+        <div class="mt-4 flex justify-center">
+            <a href="/path/to/brochure.pdf" class="text-blue-900 text-sm font-semibold rounded-full outline-2 hover:underline">
+                DOWNLOAD BROCHURE
+            </a>
+        </div>
+
+        <!-- Pola Latar Belakang -->
+        <x-pattern position="absolute -top-36 " orientation="horizontal" height="screen" class="opacity-40" />
+    </section>
+
+</section>

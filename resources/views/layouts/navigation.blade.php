@@ -1,4 +1,4 @@
-<nav class="bg-white shadow-md">
+<nav class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
     <!-- Top Navigation -->
     <div class="bg-gray-100 py-2">
         <div class="container mx-auto flex justify-between items-center px-4">
