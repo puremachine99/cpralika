@@ -60,35 +60,36 @@
             </a>
             <a href="{{ url('/about') }}"
                 class="relative px-3 py-2 group 
-                      {{ request()->is('about') ? 'bg-ralika-blue text-white rounded-lg' : 'hover:text-white text-gray-800' }}">
+                      {{ request()->is('about*') ? 'bg-ralika-blue text-white rounded-lg' : 'hover:text-white text-gray-800' }}">
                 <span class="relative z-10">ABOUT US</span>
                 <span
                     class="absolute inset-0 bg-ralika-blue rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></span>
             </a>
             <a href="{{ url('/news') }}"
                 class="relative px-3 py-2 group 
-                      {{ request()->is('news') ? 'bg-ralika-blue text-white rounded-lg ' : 'hover:text-white text-gray-800' }}">
+                      {{ request()->is('news*') ? 'bg-ralika-blue text-white rounded-lg ' : 'hover:text-white text-gray-800' }}">
                 <span class="relative z-10">NEWS</span>
                 <span
                     class="absolute inset-0 bg-ralika-blue rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></span>
             </a>
             <a href="{{ url('/products') }}"
                 class="relative px-3 py-2 group 
-                      {{ request()->is('products') ? 'bg-ralika-blue text-white rounded-lg' : 'hover:text-white text-gray-800' }}">
+                  {{ request()->is('products*') ? 'bg-ralika-blue text-white rounded-lg' : 'hover:text-white text-gray-800' }}">
                 <span class="relative z-10">PRODUCTS</span>
                 <span
                     class="absolute inset-0 bg-ralika-blue rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></span>
             </a>
+
             <a href="{{ url('/contacts') }}"
                 class="relative px-3 py-2 group 
-                      {{ request()->is('contacts') ? 'bg-ralika-blue text-white rounded-lg' : 'hover:text-white text-gray-800' }}">
+                      {{ request()->is('contacts*') ? 'bg-ralika-blue text-white rounded-lg' : 'hover:text-white text-gray-800' }}">
                 <span class="relative z-10">CONTACTS</span>
                 <span
                     class="absolute inset-0 bg-ralika-blue rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></span>
             </a>
             <a href="{{ url('/portfolio') }}"
                 class="relative px-3 py-2 group 
-                      {{ request()->is('portfolio') ? 'bg-ralika-blue text-white rounded-md lg' : 'hover:text-white text-gray-800' }}">
+                      {{ request()->is('portfolio*') ? 'bg-ralika-blue text-white rounded-md lg' : 'hover:text-white text-gray-800' }}">
                 <span class="relative z-10">PORTFOLIO</span>
                 <span
                     class="absolute inset-0 bg-ralika-blue rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></span>

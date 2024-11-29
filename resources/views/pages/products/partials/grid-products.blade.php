@@ -22,10 +22,11 @@
                          <h3 class="text-lg  text-gray-800">MOBIL ARMORED RALIKA</h3>
                          <p class="text-xl font-bold text-black mt-1">ARMORED {{ $i }}</p>
                          <div class="mt-4">
-                             <a href="#"
+                             <a href="{{ route('products.show') }}"
                                  class="px-4 py-2 border border-gray-800 text-gray-800 rounded hover:bg-gray-800 hover:text-white">
                                  Explore
                              </a>
+
                          </div>
                      </div>
                  </div>

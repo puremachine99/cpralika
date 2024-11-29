@@ -23,6 +23,20 @@ class ProductController extends Controller
 
         return view('pages.products.index', compact('categories', 'selectedCategory', 'products'));
     }
+    public function show()
+    {
+        // Data dummy
+        $categories = ProductCategory::with('children')->whereNull('parent_id')->get();
+        $selectedCategory = request('category', null);
+        $products = Product::when($selectedCategory, function ($query, $selectedCategory) {
+            $query->where('category_id', $selectedCategory)
+                ->orWhereHas('category.parent', function ($q) use ($selectedCategory) {
+                    $q->where('id', $selectedCategory);
+                });
+        })->get();
+
+        return view('pages.products.show', compact('categories', 'selectedCategory', 'products'));
+    }
 
 
     // Untuk admin (list semua data produk)
